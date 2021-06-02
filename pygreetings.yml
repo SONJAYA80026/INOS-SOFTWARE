@@ -1,0 +1,73 @@
+name: Greetings
+
+on: [pull_request, issues]
+- name: python-yamale
+  # You may pin to the exact commit or the version.
+  # uses: eXpire163/yamale-docker-action@1006ca4fa3f6f6af27718e0082f5b8cadbffbebd
+  uses: eXpire163/yamale-docker-action@v3.1
+  with:
+    # schema files used for validation
+    schema-file: # default is schema.yml
+    # yaml file that needs to be validated
+    test-file: # default is action.yml
+    # strict|nonstrict validation is requred
+    strict: # optional, default is strict
+jobs:- name: Python Blacken
+  # You may pin to the exact commit or the version.
+  # uses: piotrpawlaczek/python-blacken@00da49d5262ea8408aa006873de629fef9fc9dd1
+  uses: piotrpawlaczek/python-blacken@v20.8b1
+  with:
+    # File or directory to run black on.
+    path: # optional, default is .
+    # The number of characters allowed per line.
+    line-length: # optional, default is 81
+  greeting:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: 'Message that will be displayed on users first issue'
+        pr-message: 'Message that will be displayed on users first pull request'
+- name: Python Dependency Installation
+  # You may pin to the exact commit or the version.
+  # uses: py-actions/py-dependency-install@3c3cdbee1f1761659b685ec4b146e0f4ac59e9b4
+  uses: py-actions/py-dependency-install@v2.1.0
+  with:
+    # Path to requirements.txt file
+    path: # optional, default is requirements.txt
+    # Boolean for pip upgrade prior to the dependency installation (default='true')
+    update-pip: # optional, default is true
+    # Boolean for setuptools install/upgrade prior to the dependency installation (default='true')
+    update-setuptools: # optional, default is true
+    # Boolean for wheel install/upgrade prior to the dependency installation (default='true')
+    update-wheel: # optional, default is true
+    - name: Python Tox on Fedora
+  # You may pin to the exact commit or the version.
+  # uses: fedora-python/tox-github-action@9f7d1fff53d7384568baa0ddd748e0c35b102b82
+  uses: fedora-python/tox-github-action@v0.4
+  with:
+    # Tox environment to run the tests on
+    tox_env: # default is py38
+    # Space separated packages to install via dnf install (can contain options)
+    dnf_install: # optional, default is 
+    - name: Python Black Check
+  # You may pin to the exact commit or the version.
+  # uses: RojerGS/python-black-check@6725ab1304c8670c788b324fcae14bd0b735fc67
+  uses: RojerGS/python-black-check@v1.2
+  with:
+    # File or directory to run black on.
+    path: # optional, default is .
+    # The number of characters allowed per line.
+    line-length: # optional, default is 81
+    # A regular expression that matches files and directories that should be included on recursive searches.
+    include: # optional, default is \.pyi?$
+    # A regular expression that matches files and directories that should be excluded on recursive searches.
+    exclude: # optional, default is /(\.direnv|\.eggs|\.git|\.hg|\.mypy_cache|\.nox|\.tox|\.venv|\.svn|_build|buck-out|build|dist)/
+    - name: Python Vulture Action
+  # You may pin to the exact commit or the version.
+  # uses: anaynayak/python-vulture-action@1cb29aec734f209b591d3b34d2c6a30e98685284
+  uses: anaynayak/python-vulture-action@v1.0
+  with:
+    # cli arguments passed to vulture
+    vulture-args: # default is .

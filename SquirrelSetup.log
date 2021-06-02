@@ -1,0 +1,44 @@
+﻿2021-05-29 21:25:11> Program: Starting Squirrel Updater: --install .
+2021-05-29 21:25:13> Program: Starting install, writing to C:\Users\ferdi\AppData\Local\SquirrelTemp
+2021-05-29 21:25:13> Program: About to install to: C:\Users\ferdi\AppData\Local\WhatsApp
+2021-05-29 21:25:13> CheckForUpdateImpl: Couldn't write out staging user ID, this user probably shouldn't get beta anything: System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\ferdi\AppData\Local\WhatsApp\packages\.betaId'.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.StreamWriter.CreateFile(String path, Boolean append, Boolean checkHost)
+   at System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize, Boolean checkHost)
+   at System.IO.File.InternalWriteAllText(String path, String contents, Encoding encoding, Boolean checkHost)
+   at System.IO.File.WriteAllText(String path, String contents, Encoding encoding)
+   at Squirrel.UpdateManager.CheckForUpdateImpl.getOrCreateStagedUserId()
+2021-05-29 21:25:13> CheckForUpdateImpl: Failed to load local releases, starting from scratch: System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\ferdi\AppData\Local\WhatsApp\packages\RELEASES'.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at Squirrel.Utility.LoadLocalReleases(String localReleaseFile)
+   at Squirrel.UpdateManager.CheckForUpdateImpl.<CheckForUpdate>d__2.MoveNext()
+2021-05-29 21:25:13> CheckForUpdateImpl: Reading RELEASES file from C:\Users\ferdi\AppData\Local\SquirrelTemp
+2021-05-29 21:25:13> CheckForUpdateImpl: First run or local directory is corrupt, starting from scratch
+2021-05-29 21:25:16> ApplyReleasesImpl: Writing files to app directory: C:\Users\ferdi\AppData\Local\WhatsApp\app-2.2119.6
+2021-05-29 21:25:34> LogHost: Rigging execution stub for WhatsApp_ExecutionStub.exe to C:\Users\ferdi\AppData\Local\WhatsApp\WhatsApp.exe
+2021-05-29 21:25:44> ApplyReleasesImpl: Squirrel Enabled Apps: [C:\Users\ferdi\AppData\Local\WhatsApp\app-2.2119.6\WhatsApp.exe]
+2021-05-29 21:26:01> ApplyReleasesImpl: Couldn't run Squirrel hook, continuing: C:\Users\ferdi\AppData\Local\WhatsApp\app-2.2119.6\WhatsApp.exe: System.OperationCanceledException: The operation was canceled.
+   at System.Threading.CancellationToken.ThrowOperationCanceledException()
+   at Squirrel.Utility.<>c__DisplayClass11_0.<InvokeProcessAsync>b__0()
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Squirrel.Utility.<InvokeProcessAsync>d__11.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Squirrel.UpdateManager.ApplyReleasesImpl.<>c__DisplayClass10_0.<<invokePostInstall>b__0>d.MoveNext()
+2021-05-29 21:26:01> ApplyReleasesImpl: Starting fixPinnedExecutables
+2021-05-29 21:26:01> ApplyReleasesImpl: Examining Pin: Agoda.lnk
+2021-05-29 21:26:01> ApplyReleasesImpl: Examining Pin: File Explorer.lnk
+2021-05-29 21:26:01> ApplyReleasesImpl: Examining Pin: Firefox.lnk
+2021-05-29 21:26:01> ApplyReleasesImpl: Examining Pin: Microsoft Edge.lnk
+2021-05-29 21:26:01> ApplyReleasesImpl: Fixing up tray icons
+2021-05-29 21:26:01> ApplyReleasesImpl: cleanDeadVersions: for version 2.2119.6
+2021-05-29 21:26:01> ApplyReleasesImpl: cleanDeadVersions: exclude folder app-2.2119.6
